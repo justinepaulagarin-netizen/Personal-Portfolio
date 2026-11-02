@@ -1,0 +1,302 @@
+/* =========================================================
+   css/base.css  –  SHARED BY ALL PAGES
+   Colors, reset, layout helpers, buttons, tags, animations.
+   >>> CHANGE YOUR COLORS HERE <<<
+   ========================================================= */
+
+/* ---------- THEME VARIABLES ---------- */
+:root {
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius: 16px;
+  --nav-height: 72px;
+  --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Light mode (white) */
+:root[data-theme="light"] {
+  --accent: #0a0a0a;
+  --accent-hover: #3f3f46;
+  --bg: #ffffff;
+  --bg-alt: #f5f5f5;
+  --surface: #ffffff;
+  --text: #0a0a0a;
+  --text-muted: #52525b;
+  --border: #e4e4e7;
+  --border-strong: #0a0a0a;
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+  --on-accent: #ffffff;
+  --grid-line: rgba(0, 0, 0, 0.045);
+  --glow: rgba(0, 0, 0, 0.07);
+}
+
+/* Dark mode (black) – default look */
+:root,
+:root[data-theme="dark"] {
+  --accent: #ffffff;
+  --accent-hover: #d4d4d8;
+  --bg: #000000;
+  --bg-alt: #0a0a0a;
+  --surface: #111111;
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --border: #27272a;
+  --border-strong: #ffffff;
+  --shadow: 0 18px 50px rgba(255, 255, 255, 0.07);
+  --on-accent: #000000;
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --glow: rgba(255, 255, 255, 0.09);
+}
+
+/* ---------- RESET ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) var(--bg);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Subtle grid + soft light behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -10%, var(--glow), transparent 70%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 56px 56px,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, #000 40%, transparent 100%);
+          mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, #000 40%, transparent 100%);
+}
+
+::selection { background: var(--accent); color: var(--on-accent); }
+
+img { display: block; max-width: 100%; height: auto; }
+ul { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, p { margin: 0; }
+a { color: var(--accent); text-decoration: none; transition: color var(--transition), opacity var(--transition); }
+a:hover { color: var(--accent-hover); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  z-index: 300;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; color: var(--on-accent); }
+
+/* ---------- LAYOUT HELPERS ---------- */
+.container { width: min(1160px, 100% - 2.5rem); margin-inline: auto; }
+
+.section { padding: 7rem 0; position: relative; }
+
+/* Alternate background for every other section (About, Certificates) */
+.section.alt { background: var(--bg-alt); border-block: 1px solid var(--border); }
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 1rem auto 0;
+  border-radius: 3px;
+  background: var(--accent);
+  transform-origin: center;
+  transform: scaleX(0.4);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+.section-title.visible::after { transform: scaleX(1); }
+
+.grid { display: grid; gap: 1.75rem; }
+.lead { font-size: 1.12rem; color: var(--text-muted); }
+
+/* ---------- BUTTONS ---------- */
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 0.85rem 1.7rem;
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition),
+              color var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.btn:active { transform: translateY(-1px) scale(0.98); }
+
+/* Light sweep on hover */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(128, 128, 128, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+.btn:hover::before { left: 140%; }
+
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--on-accent); }
+
+.btn-outline { background: transparent; color: var(--text); border-color: var(--border-strong); }
+.btn-outline:hover { background: var(--accent); color: var(--on-accent); }
+
+.btn-sm { padding: 0.5rem 1.05rem; font-size: 0.86rem; }
+
+/* ---------- TAGS ---------- */
+.tag-list { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.tag {
+  padding: 0.35rem 0.95rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: border-color var(--transition), color var(--transition), transform var(--transition),
+              background var(--transition);
+}
+.tag:hover { border-color: var(--accent); background: var(--accent); color: var(--on-accent); transform: translateY(-3px); }
+.tag-list.small .tag { padding: 0.15rem 0.7rem; font-size: 0.76rem; background: var(--bg-alt); }
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Every page fades in; links fade the page out (see js/page-transition.js) */
+main { animation: pageIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+body.page-leaving { opacity: 0; transition: opacity 0.28s ease; }
+
+/* Scroll reveal – only hides things when JavaScript is running */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow var(--transition), border-color var(--transition);
+  transition-delay: var(--d, 0ms);
+}
+.js .reveal.visible { opacity: 1; transform: none; }
+/* After the entrance finishes, drop the delay so hover feels instant */
+.js .reveal.settled { transition-delay: 0ms; transition-duration: 0.9s, 0.35s, 0.3s, 0.3s; }
+
+/* ---------- EXTRAS CREATED BY js/extras.js ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  z-index: 250;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--glow), transparent 65%);
+  pointer-events: none;
+  z-index: -1;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.cursor-glow.on { opacity: 1; }
+
+.to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 120;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  font-family: inherit;
+  color: var(--on-accent);
+  background: var(--accent);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { transform: translateY(-4px); }
+
+/* ---------- ACCESSIBILITY & TOUCH ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  .js .reveal { opacity: 1; transform: none; }
+  .section-title::after { transform: scaleX(1); }
+}
+@media (hover: none) { .cursor-glow { display: none; } }
+
+/* ---------- RESPONSIVE (shared) ---------- */
+@media (max-width: 600px) {
+  .section { padding: 4.5rem 0; }
+  .section-title { margin-bottom: 2.5rem; }
+  .btn-row .btn { flex: 1 1 auto; }
+}

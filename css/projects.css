@@ -1,0 +1,16 @@
+/* =========================================================
+   css/projects.css  –  PROJECTS PAGE (projects.html) ONLY
+   ========================================================= */
+
+.projects-grid { grid-template-columns: repeat(3, 1fr); }
+
+.project-card img { aspect-ratio: 16 / 9; }
+.project-card .btn-row { margin-top: auto; padding-top: 0.5rem; }
+
+/* ---------- TABLET: 2 columns / PHONE: 1 column ---------- */
+@media (max-width: 900px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}

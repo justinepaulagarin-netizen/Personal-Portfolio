@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 450" role="img" aria-label="Certificate image placeholder">
+  <!-- REPLACE THIS FILE (or the <img> src in index.html) WITH AN IMAGE OF YOUR CERTIFICATE -->
+  <rect width="640" height="450" fill="#cbd5e1"/>
+  <rect x="90" y="60" width="460" height="330" rx="8" fill="#e2e8f0" stroke="#64748b" stroke-width="6"/>
+  <rect x="140" y="110" width="360" height="22" rx="4" fill="#94a3b8"/>
+  <rect x="190" y="160" width="260" height="14" rx="4" fill="#94a3b8"/>
+  <rect x="170" y="190" width="300" height="14" rx="4" fill="#94a3b8"/>
+  <circle cx="320" cy="295" r="40" fill="#94a3b8"/>
+  <text x="320" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#334155">Certificate Image</text>
+</svg>

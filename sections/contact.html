@@ -1,0 +1,75 @@
+<!-- sections/contact.html – this file is loaded into index.html by js/load.js -->
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" class="section-title reveal">Get In Touch</h2>
+
+        <div class="contact-grid">
+
+          <div class="contact-info reveal">
+            <p class="lead">
+              Have a question, an opportunity, or just want to say hi? Send me a message and I'll get back to you.
+            </p>
+
+            <ul class="contact-list">
+              <li>
+                <span class="contact-label">Email</span>
+                <!-- ADD YOUR REAL EMAIL HERE (change both the href and the text) -->
+                <a href="mailto:evascoagarin@gmail.com">evascoagarin@gmail.com</a>
+              </li>
+              <li>
+                <span class="contact-label">Phone</span>
+                <!-- ADD YOUR REAL PHONE NUMBER HERE (change both the href and the text) -->
+                <a href="tel:09319533440">+63 931 953 3440</a>
+              </li>
+              <li>
+                <span class="contact-label">Location</span>
+                <!-- CHANGE THIS TO YOUR LOCATION IF NEEDED -->
+                <span>Sorsogon, Bulan</span>
+              </li>
+            </ul>
+
+            <!-- SOCIAL LINKS: each icon opens your profile in a new tab.
+                 The round badges are placeholders – swap the letters for icon images or an icon library later. -->
+            <ul class="social-list" aria-label="Social media links">
+              <li><a href="https://github.com/justinepaulagarin-netizen" class="social" aria-label="GitHub profile" title="GitHub" target="_blank" rel="noopener noreferrer">GH</a></li>
+              <li><a href="https://www.linkedin.com/in/justine-paul-agarin-084177448/" class="social" aria-label="LinkedIn profile" title="LinkedIn" target="_blank" rel="noopener noreferrer">IN</a></li>
+              <li><a href="https://www.facebook.com/justine.agarin.109135" class="social" aria-label="Facebook profile" title="Facebook" target="_blank" rel="noopener noreferrer">FB</a></li>
+              <li><a href="https://www.instagram.com/justinepaulagarin" class="social" aria-label="Instagram profile" title="Instagram" target="_blank" rel="noopener noreferrer">IG</a></li>
+            </ul>
+          </div>
+
+          <!-- =======================================================
+               CONTACT FORM
+               CONNECT THE FORM LATER:
+               Option A (easiest): sign up at formspree.io, then set
+                  action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+               Option B: use EmailJS, Netlify Forms, or your own backend.
+               Then delete the demo block in js/contact-form.js so the form really submits.
+               ======================================================= -->
+          <form class="contact-form reveal" id="contact-form" action="#" method="POST">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What is this about?" required />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <!-- Status message shown after submitting (read aloud by screen readers) -->
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>

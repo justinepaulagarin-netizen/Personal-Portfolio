@@ -1,0 +1,92 @@
+/* =========================================================
+   css/contact.css  –  CONTACT PAGE (contact.html) ONLY
+   Contact info, social icons, and the message form.
+   ========================================================= */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* ---------- Email / phone / location ---------- */
+.contact-list { display: grid; gap: 1.2rem; margin: 2rem 0; }
+.contact-list li { display: flex; flex-direction: column; padding-left: 1rem; border-left: 2px solid var(--border); transition: border-color var(--transition); }
+.contact-list li:hover { border-left-color: var(--accent); }
+.contact-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); }
+.contact-list a,
+.contact-list li > span:last-child { font-size: 1.08rem; font-weight: 500; }
+.contact-list a { color: var(--text); }
+.contact-list a:hover { color: var(--text-muted); }
+.contact-list li > span:last-child { color: var(--text); }
+
+/* ---------- Social icons ---------- */
+.social-list { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.social {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition: transform var(--transition), background var(--transition), color var(--transition),
+              border-color var(--transition), box-shadow var(--transition);
+}
+.social:hover {
+  transform: translateY(-5px) scale(1.08);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Message form ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field label { font-size: 0.88rem; font-weight: 600; color: var(--text-muted); transition: color var(--transition); }
+.field:focus-within label { color: var(--text); }
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.field input::placeholder,
+.field textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
+.field textarea { resize: vertical; min-height: 140px; }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--glow);
+  transform: translateY(-1px);
+}
+.contact-form .btn { align-self: flex-start; }
+.form-status { min-height: 1.4em; font-size: 0.92rem; font-weight: 500; color: var(--text-muted); }
+
+/* ---------- PHONE / TABLET ---------- */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 600px) {
+  .contact-form { padding: 1.4rem; }
+}

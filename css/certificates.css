@@ -1,0 +1,19 @@
+/* =========================================================
+   css/certificates.css  –  CERTIFICATES PAGE (certificates.html) ONLY
+   ========================================================= */
+
+.certs-grid { grid-template-columns: repeat(4, 1fr); }
+
+.cert-card img { aspect-ratio: 4 / 3; }
+.cert-card .btn { align-self: flex-start; margin-top: auto; }
+
+.meta { font-weight: 500; }
+.meta.year { font-size: 0.85rem; color: var(--text); font-weight: 700; letter-spacing: 0.06em; }
+
+/* ---------- LAPTOP/TABLET: 2 columns / PHONE: 1 column ---------- */
+@media (max-width: 1080px) {
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .certs-grid { grid-template-columns: 1fr; }
+}

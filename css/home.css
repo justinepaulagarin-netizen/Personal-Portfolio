@@ -1,0 +1,105 @@
+/* =========================================================
+   css/home.css  –  HOME PAGE (index.html) ONLY
+   ========================================================= */
+
+@keyframes float {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -12px; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--nav-height) + 3rem);
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 5rem;
+}
+
+/* ---------- Profile photo ---------- */
+.profile-photo {
+  position: relative;
+  width: clamp(230px, 28vw, 360px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  box-shadow: 0 0 0 10px var(--bg), 0 0 0 11px var(--border), var(--shadow);
+  background: var(--bg-alt);
+  animation: float 6s ease-in-out infinite;
+}
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.6s ease;
+}
+.profile-photo:hover img { transform: scale(1.05); }
+/* Rotating dashed ring */
+.profile-photo::after {
+  content: "";
+  position: absolute;
+  inset: -26px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--text-muted);
+  opacity: 0.55;
+  animation: spin 40s linear infinite;
+  pointer-events: none;
+}
+
+/* ---------- Hero text ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--accent); }
+
+.hero h1 {
+  font-size: clamp(2.6rem, 7vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  background: linear-gradient(120deg, var(--text) 30%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.role { margin: 0.8rem 0 1.3rem; font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-weight: 600; color: var(--text); }
+.hero .lead { max-width: 52ch; margin-bottom: 2.2rem; }
+
+/* Hero text rises in one line after another */
+.js .hero-text.reveal > * { opacity: 0; animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.js .hero-text.reveal > :nth-child(1) { animation-delay: 0.15s; }
+.js .hero-text.reveal > :nth-child(2) { animation-delay: 0.3s; }
+.js .hero-text.reveal > :nth-child(3) { animation-delay: 0.45s; }
+.js .hero-text.reveal > :nth-child(4) { animation-delay: 0.6s; }
+.js .hero-text.reveal > :nth-child(5) { animation-delay: 0.75s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero-text.reveal > * { opacity: 1; }
+}
+
+/* ---------- PHONE / TABLET ---------- */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 3rem; }
+  .eyebrow { justify-content: center; }
+  .hero .lead { margin-inline: auto; }
+  .hero .btn-row { justify-content: center; }
+}
+@media (max-width: 600px) {
+  .profile-photo::after { inset: -18px; }
+}

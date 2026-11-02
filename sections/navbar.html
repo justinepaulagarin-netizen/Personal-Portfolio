@@ -1,0 +1,32 @@
+<!-- sections/navbar.html – loaded into index.html by js/load.js -->
+<!-- =====================================================
+       NAVIGATION BAR (each link scrolls to its section)
+       To add the logo back, put <a href="#home" class="logo">LOGO</a> before the <ul>.
+       ===================================================== -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Light / dark mode toggle -->
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+          <span aria-hidden="true" id="theme-icon">☾</span>
+        </button>
+
+        <!-- Mobile menu button (visible on small screens only) -->
+        <button class="icon-btn menu-toggle" id="menu-toggle" type="button"
+                aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+          <span class="menu-bar" aria-hidden="true"></span>
+          <span class="menu-bar" aria-hidden="true"></span>
+          <span class="menu-bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>

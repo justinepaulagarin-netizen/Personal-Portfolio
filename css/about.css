@@ -1,0 +1,38 @@
+/* =========================================================
+   css/about.css  –  ABOUT PAGE (about.html) ONLY
+   ========================================================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+.about-bio h3,
+.skills h3,
+.tools h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 1.1rem; }
+.about-bio p { color: var(--text-muted); margin-bottom: 1rem; }
+.about-bio .btn { margin-top: 0.75rem; }
+
+/* ---------- Skill bars ---------- */
+.skill-list { display: grid; gap: 1.3rem; }
+.skill-head { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.45rem; }
+.skill-head span:last-child { color: var(--text-muted); font-weight: 500; }
+
+.bar { height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; }
+.bar-fill {
+  display: block;
+  width: 0;                                   /* animated to data-level by js/reveal.js */
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Tools & Technologies ---------- */
+.tools { margin-top: 3.5rem; }
+
+/* ---------- PHONE / TABLET ---------- */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}

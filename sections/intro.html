@@ -1,0 +1,28 @@
+<!-- sections/intro.html – the OPENING ANIMATION (loaded into index.html by js/load.js)
+     The text below is what shows during the intro. Change data-name and data-role to yours.
+     Styles: css/intro.css   |   Animation: js/intro.js -->
+<div class="intro" id="intro"
+     data-name="Justine Paul Agarin"
+     data-role="Student | Aspiring [BSCS]">
+
+  <!-- Two black halves that slide apart at the end (the "curtain") -->
+  <div class="intro-panel intro-panel--top" aria-hidden="true"></div>
+  <div class="intro-panel intro-panel--bottom" aria-hidden="true"></div>
+
+  <div class="intro-content">
+    <span class="intro-corner intro-corner--tl" aria-hidden="true">Portfolio</span>
+    <span class="intro-corner intro-corner--tr" aria-hidden="true">© 2026</span>
+
+    <div class="intro-center" aria-hidden="true">
+      <!-- Letters of the name are created here by js/intro.js -->
+      <h2 class="intro-name" id="intro-name"></h2>
+      <div class="intro-line"><span id="intro-line-fill"></span></div>
+      <p class="intro-role" id="intro-role"></p>
+    </div>
+
+    <div class="intro-counter" aria-hidden="true"><span id="intro-count">000</span><small>%</small></div>
+
+    <!-- Lets visitors skip the animation -->
+    <button class="intro-skip" id="intro-skip" type="button">Skip intro</button>
+  </div>
+</div>

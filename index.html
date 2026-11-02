@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- REPLACE THIS: page title (shows in the browser tab) -->
+  <title>Justine Paul Pogi | Student Portfolio</title>
+  <meta name="description" content="Personal portfolio of Justine Paul Pogi – student and aspiring [Your Field]." />
+
+  <!-- Modern sans-serif font (Inter). Remove these 3 lines to use only system fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- CSS: one file per part of the site (all loaded on this one page) -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="stylesheet" href="css/certificates.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/intro.css" />
+
+  <!-- Sets light/dark theme before the page paints (prevents a flash) -->
+  <script src="js/theme-init.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- =====================================================
+       THIS PAGE IS JUST A SHELL.
+       Each data-include line below is replaced by the content of that file
+       (see js/load.js). Edit the files inside the sections/ folder, not this one.
+       To reorder sections, move the lines. To remove one, delete its line.
+       ===================================================== -->
+
+  <!-- Opening animation (remove this line to turn the intro off) -->
+  <div data-include="sections/intro.html"></div>
+
+  <div data-include="sections/navbar.html"></div>
+
+  <main id="main">
+    <div data-include="sections/home.html"></div>
+    <div data-include="sections/about.html"></div>
+    <div data-include="sections/projects.html"></div>
+    <div data-include="sections/certificates.html"></div>
+    <div data-include="sections/contact.html"></div>
+  </main>
+
+  <noscript><p style="padding:6rem 1.5rem;text-align:center">Please turn on JavaScript to view this portfolio.</p></noscript>
+
+  <!-- Loads the sections above, then starts the other scripts in js/ -->
+  <script src="js/load.js"></script>
+</body>
+</html>
